@@ -36,7 +36,7 @@
           format = "{icon}";
           "format-icons" = {
             activated = "󰅶";
-            deactivated = "󰾪";
+            deactivated = "󰾫";
           };
         };
 
@@ -45,7 +45,7 @@
           tooltip = true;
           tooltip-format = "Clipboard History";
           # This command uses cliphist and a launcher like fuzzel or wofi
-          "on-click" = "bash -c 'choice=$(echo -e \"[󰃢  Clear History]\\n$(cliphist list)\" | fuzzel -d -a top-right -x 180 -y 30 -l 8 -w 40 -p \"󰅌  \"); if [ \"$choice\" = \"[󰃢  Clear History]\" ]; then cliphist wipe; elif [ -n \"$choice\" ]; then echo \"$choice\" | cliphist decode | wl-copy; fi'";
+          "on-click" = "bash -c 'choice=$(echo -e \"[󰃢  Clear History]\\n$(cliphist list)\" | fuzzel -d -a top-right -x 20 -y 20 -l 8 -w 40 -p \"󰅌  \"); if [ \"$choice\" = \"[󰃢  Clear History]\" ]; then cliphist wipe; elif [ -n \"$choice\" ]; then echo \"$choice\" | cliphist decode | wl-copy; fi'";
         };
 
         bluetooth = {
@@ -156,14 +156,6 @@ style = ''
         background-color: @base02; /* Usually a lighter background highlight */
       }
 
-      #pulseaudio {
-        color: @base05;
-      }
-
-      #battery {
-        color: @base0B; /* Usually Green for normal battery */
-      }
-
       #battery.warning {
         color: @base09; /* Orange */
       }
@@ -172,15 +164,7 @@ style = ''
         color: @base08; /* Red */
       }
 
-      #backlight {
-        color: @base0A; /* Yellow */
-      }
-
-      #network {
-        color: @base0B; /* Green */
-      }
-
-      #idle_inhibitor {
+      #idle_inhibitor.activated {
         color: @base09; /* Orange */
       }
     '';
