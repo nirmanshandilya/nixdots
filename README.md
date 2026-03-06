@@ -1,6 +1,6 @@
 # ❄️ nixdots
 
-Welcome to my declarative system configuration. This repository contains my personal NixOS and Home Manager setup that I use as my daily driver. Although I rarely use it, this setup has necessary gaming features enabled (thanks to [@aryanvedd])
+Welcome to my declarative system configuration. This repository contains my personal NixOS and Home Manager setup that I use as my daily driver. Although I rarely use it, this setup has necessary gaming features enabled (thanks to [@aryanvedd] https://github.com/aryanvedd)
 
 ## 🖥️ System Overview
 
