@@ -3,7 +3,7 @@
   programs.niri.enable = true;
 
   # 2. USER LEVEL: Wrap the Home Manager options for your user
-  home-manager.users.jawknee = { pkgs, ... }: {
+  home-manager.users.jawknee = { pkgs, config, ... }: {
     
     home.packages = with pkgs; [
       xwayland
@@ -38,7 +38,7 @@
       }
 
       spawn-sh-at-startup "hyprpolkitagent" 
-      spawn-sh-at-startup "swaybg -i ~/nixdots/wallpapers/lockscreen_wallpaper.png -m fill" // homescreen wallpaper
+      spawn-sh-at-startup "swaybg -i ~/nixdots/wallpapers/wallhaven-zpx3xw.png -m fill" // homescreen wallpaper
       spawn-sh-at-startup "waybar" 
 
 
@@ -89,8 +89,8 @@
           always-center-single-column
           focus-ring {
               width 3
-              active-color "#d79921"
-              inactive-color "#505050"
+              active-color "#${config.lib.stylix.colors.base0E}"
+              inactive-color "#${config.lib.stylix.colors.base03}"
         
         }
       }

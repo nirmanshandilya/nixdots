@@ -33,6 +33,8 @@
     fastfetch
     wl-clipboard
     cliphist
+    tty-clock
+    zellij
 
     # Apps
     floorp-bin
@@ -74,6 +76,7 @@
   stylix.enableReleaseChecks = false;
   # This tells Home Manager to manage itself
   programs.home-manager.enable = true;
+
   services.cliphist.enable = true; #this automatically starts ( wl-paste --watch cliphist store )
 
 

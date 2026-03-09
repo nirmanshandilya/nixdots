@@ -5,10 +5,10 @@
 
     # You MUST have a wallpaper file in your nixdots folder for Stylix to work.
     # Replace "wallpaper.jpg" with your actual file name.
-    image = ../../../wallpapers/wallpaper.png;
+    image = ../../../wallpapers/wallhaven-zpx3xw.png;
      
     # Setting the theme to Gruvbox
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-hard.yaml";
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     # Global Polarity (ensures apps prefer dark mode)
     polarity = "dark";
