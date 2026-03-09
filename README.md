@@ -43,11 +43,4 @@ I've organized my configurations using flakes to keep hardware-specific settings
 │               └──  hardware-configuration.nix
 ├──  README.md
 └──  wallpapers
-    ├──  lockscreen_wallpaper.png
-    ├──  wallhaven-1p55dw.png
-    ├──  wallhaven-21g619.jpg
-    ├──  wallhaven-2y2wg6.png
-    ├──  wallhaven-o5ky29.png
-    ├──  wallhaven-yqj6j7.jpg
-    └──  wallpaper.png
 ```
