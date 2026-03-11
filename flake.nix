@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -26,7 +26,14 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
+  outputs =
+    inputs@{
+      nixpkgs,
+      flake-parts,
+      home-manager,
+      ...
+
+    }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" ];
 
@@ -36,11 +43,14 @@
           modules = [
             # The entry point for the system
             ./modules/nixosModules/hosts/nixos/configuration.nix
-            
+
             # Global modules
             inputs.stylix.nixosModules.stylix
-            inputs.home-manager.nixosModules.home-manager
+            # inputs.home-manager.nixosModules.home-manager # Install standalone home-manager
           ];
+        };
+        homeConfigurations."jawknee" = home-manager.lib.homeManagerConfiguration {
+          modules = [ ./home.nix ];
         };
       };
     };
