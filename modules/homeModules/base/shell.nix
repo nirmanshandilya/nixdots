@@ -1,13 +1,37 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
     
+
+    plugins = [
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.zsh-autosuggestions;
+        file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = pkgs.zsh-syntax-highlighting;
+        file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+      }
+      {
+        name = "zsh-completions";
+        src = pkgs.zsh-completions;
+        file = "share/zsh-completions/zsh-completions.plugin.zsh";
+      }
+      {
+        name = "fzf-tab";
+        src = pkgs.zsh-fzf-tab;
+        file = "share/fzf-tab/fzf-tab.plugin.zsh";
+      }
+    ];
+
     # History Settings
     history = {
       size = 1000000;
       save = 1000000;
-      path = "$HOME/.zsh_history";
+      path = "${config.home.homeDirectory}/.zsh_history";
       ignoreAllDups = true;
       share = true;
     };
@@ -41,29 +65,6 @@
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
       zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
       
-      # In shell.nix, replace the entire zinit block with:
-      programs.zsh.plugins = [
-        {
-          name = "zsh-autosuggestions";
-          src = pkgs.zsh-autosuggestions;
-          file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
-        }
-        {
-          name = "zsh-syntax-highlighting";
-          src = pkgs.zsh-syntax-highlighting;
-          file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
-        }
-        {
-          name = "zsh-completions";
-          src = pkgs.zsh-completions;
-          file = "share/zsh-completions/zsh-completions.plugin.zsh";
-        }
-        {
-          name = "fzf-tab";
-          src = pkgs.zsh-fzf-tab;
-          file = "share/fzf-tab/fzf-tab.plugin.zsh";
-        }
-      ];
     '';
   };
 
