@@ -24,7 +24,7 @@
       vi = "nvim";
 #      .. = "cd ..";
       bt = "blueman-manager";
-      nrf = "sudo nixos-rebuild switch --flake ~/nixdots#nixos";
+      nos = "nh os switch";
     };
 
     # Keybinds & Custom Logic (initExtra)
@@ -41,18 +41,29 @@
       zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
       zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
       
-      # Zinit Setup (Nix doesn't manage Zinit, so we keep your manual setup)
-      ZINIT_HOME="''${XDG_DATA_HOME:-''${HOME}/.local/share}/zinit/zinit.git"
-      [ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
-      [ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
-      source "''${ZINIT_HOME}/zinit.zsh"
-
-      # Plugins via Zinit
-      zinit light zsh-users/zsh-autosuggestions
-      zinit light zsh-users/zsh-completions
-      zinit light zsh-users/zsh-syntax-highlighting
-      zinit light Aloxaf/fzf-tab
-      zinit snippet OMZP::command-not-found
+      # In shell.nix, replace the entire zinit block with:
+      programs.zsh.plugins = [
+        {
+          name = "zsh-autosuggestions";
+          src = pkgs.zsh-autosuggestions;
+          file = "share/zsh-autosuggestions/zsh-autosuggestions.zsh";
+        }
+        {
+          name = "zsh-syntax-highlighting";
+          src = pkgs.zsh-syntax-highlighting;
+          file = "share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh";
+        }
+        {
+          name = "zsh-completions";
+          src = pkgs.zsh-completions;
+          file = "share/zsh-completions/zsh-completions.plugin.zsh";
+        }
+        {
+          name = "fzf-tab";
+          src = pkgs.zsh-fzf-tab;
+          file = "share/fzf-tab/fzf-tab.plugin.zsh";
+        }
+      ];
     '';
   };
 

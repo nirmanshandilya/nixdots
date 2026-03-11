@@ -7,7 +7,7 @@
     # Replace "wallpaper.jpg" with your actual file name.
     image = ../../../wallpapers/wallhaven-zpx3xw.png;
      
-    # Setting the theme to Gruvbox
+    # Setting the theme to Catppuccin Mocha
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
     # Global Polarity (ensures apps prefer dark mode)

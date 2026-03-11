@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ config, pkgs, ... }: {
   programs = {
     # 1. NH: The better way to rebuild and clean your system
     nh = {
@@ -8,7 +8,7 @@
         dates = "weekly";
         extraArgs = "--keep 5 --keep-since 3d";
       };
-      flake = "/home/jawknee/nixdots"; # Point to YOUR dots
+      flake = "${config.home.homeDirectory}/nixdots"; # Point to YOUR dots
     };
 
     # 2. Direnv: Auto-load project environments

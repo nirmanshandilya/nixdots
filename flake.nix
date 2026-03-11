@@ -26,22 +26,15 @@
 
   };
 
-  outputs = inputs@{ self, nixpkgs, flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" ];
-
-      flake = {
-        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
-          modules = [
-            # The entry point for the system
-            ./modules/nixosModules/hosts/nixos/configuration.nix
-            
-            # Global modules
-            inputs.stylix.nixosModules.stylix
-            inputs.home-manager.nixosModules.home-manager
-          ];
-        };
+    outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./modules/nixosModules/hosts/nixos/configuration.nix
+          stylix.nixosModules.stylix
+          home-manager.nixosModules.home-manager
+        ];
       };
     };
 }

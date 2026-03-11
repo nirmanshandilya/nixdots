@@ -169,6 +169,7 @@ style = ''
       }
     '';
   };
-      stylix.targets.waybar.enable = true;
-      stylix.targets.fuzzel.enable = true;
+
+  stylix.targets.waybar.enable = true;
+  stylix.targets.fuzzel.enable = true;
 }

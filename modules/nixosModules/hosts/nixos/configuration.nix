@@ -119,8 +119,14 @@
     "/share/applications" 
   ];
 
+  xdg.portal = {
+  enable = true;
+  extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  config.common.default = "gtk";
+  };
+
   # --- HOME MANAGER ---
-  # This links your human user 'nirman' to the home.nix config.
+  # This links your human user 'jawknee' to the home.nix config.
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     useGlobalPkgs = true;

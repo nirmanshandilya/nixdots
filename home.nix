@@ -17,7 +17,6 @@
   home.stateVersion = "25.11";
 
   home.packages = with pkgs; [
-    home-manager
     unzip
     gcc
     gnumake
@@ -26,7 +25,6 @@
     p7zip
 
     # Terminal Tools
-    kitty
     neovim
     lsd
     fzf
@@ -37,21 +35,13 @@
     zellij
 
     # Apps
-    floorp-bin
-    vlc
     mpv
     localsend
-    xfce.thunar
     zed-editor
 
     # Desktop
-    waybar
     mako
     swaylock-effects
-    fuzzel
-    swww
-    hyprpolkitagent
-    swaybg
 
     # Themes
     adwaita-icon-theme

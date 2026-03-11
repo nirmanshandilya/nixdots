@@ -1,0 +1,6 @@
+*.bak
+*.swp
+*~
+.direnv/
+result
+result-*

@@ -1,6 +1,6 @@
-{ pkgs, ... }: {
+{ pkgs, inputs, ... }: {
   # 1. SYSTEM LEVEL: Enable the compositor for the display manager
-  programs.niri.enable = true;
+  programs.niri.package = inputs.niri.packages.${pkgs.system}.niri;
 
   # 2. USER LEVEL: Wrap the Home Manager options for your user
   home-manager.users.jawknee = { pkgs, config, ... }: {
@@ -38,7 +38,7 @@
       }
 
       spawn-sh-at-startup "hyprpolkitagent" 
-      spawn-sh-at-startup "swaybg -i ~/nixdots/wallpapers/wallhaven-zpx3xw.png -m fill" // homescreen wallpaper
+      spawn-sh-at-startup "swaybg -i ${config.stylix.image} -m fill" // homescreen wallpaper
       spawn-sh-at-startup "waybar" 
 
 
