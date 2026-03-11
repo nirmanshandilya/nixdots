@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }: {
   # 1. SYSTEM LEVEL: Enable the compositor for the display manager
   programs.niri.enable = true;
+  programs.niri.package = inputs.niri.packages.${pkgs.system}.niri-stable;
 
   # 2. USER LEVEL: Wrap the Home Manager options for your user
   home-manager.users.jawknee = { pkgs, config, ... }: {
@@ -20,7 +21,7 @@
       wireplumber
     ];
 
-    xdg.configFile."niri/config.kdl".text = ''
+   programs.niri.config = ''
       // ==========================================
       // ENVIRONMENT & STARTUP
       // ==========================================

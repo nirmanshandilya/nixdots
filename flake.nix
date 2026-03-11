@@ -26,7 +26,7 @@
 
   };
 
-    outputs = { self, nixpkgs, home-manager, stylix, ... }@inputs: {
+    outputs = { self, nixpkgs, home-manager, stylix, niri, ... }@inputs: {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
@@ -34,6 +34,7 @@
           ./modules/nixosModules/hosts/nixos/configuration.nix
           stylix.nixosModules.stylix
           home-manager.nixosModules.home-manager
+          niri.nixosModules.niri
         ];
       };
     };
