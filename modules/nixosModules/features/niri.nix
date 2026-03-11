@@ -1,6 +1,6 @@
 { pkgs, inputs, ... }: {
   # 1. SYSTEM LEVEL: Enable the compositor for the display manager
-  programs.niri.package = inputs.niri.packages.${pkgs.system}.niri;
+  programs.niri.enable = true;
 
   # 2. USER LEVEL: Wrap the Home Manager options for your user
   home-manager.users.jawknee = { pkgs, config, ... }: {

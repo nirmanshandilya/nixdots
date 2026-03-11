@@ -89,6 +89,9 @@
     ];
   };
 
+  # --- PAM Services for Swaylock ---
+  security.pam.services.swaylock = {};
+
   # Enable sound with pipewire.
   security.rtkit.enable = true;
   services.pipewire = {

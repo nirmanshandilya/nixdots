@@ -7,7 +7,7 @@
         # --time: Shows the current time in the corner.
         # --remember: Remembers the last user who logged in.
         # --cmd niri-session: Automatically starts Niri after a successful login.
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd niri-session";
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd ${pkgs.niri}/bin/niri-session";
         user = "greeter";
       };
     };
