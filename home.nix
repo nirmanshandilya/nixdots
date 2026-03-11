@@ -10,6 +10,7 @@
     ./modules/homeModules/base/kitty.nix
     ./modules/homeModules/base/nixTools.nix
     ./modules/homeModules/base/yazi.nix
+    ./modules/homeModules/base/niri.nix
   ];
 
   home.username = "jawknee";
@@ -56,11 +57,11 @@
     # Themes
     adwaita-icon-theme
     gnome-themes-extra
-    
+
     # Language Servers (LSPs)
     lua-language-server
-    nil 
-    pyright 
+    nil
+    pyright
     vscode-langservers-extracted
     nodePackages.typescript-language-server
     clang-tools
@@ -70,15 +71,12 @@
 
     #Development tools
     mongodb-compass
-    postman #handle api requests
+    postman # handle api requests
   ];
 
   stylix.enableReleaseChecks = false;
   # This tells Home Manager to manage itself
   programs.home-manager.enable = true;
 
-  services.cliphist.enable = true; #this automatically starts ( wl-paste --watch cliphist store )
-
-
-
+  services.cliphist.enable = true; # this automatically starts ( wl-paste --watch cliphist store )
 }
