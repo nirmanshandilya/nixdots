@@ -76,7 +76,8 @@
 
   # --- FONTS ---
   fonts.packages = with pkgs; [
-    nerd-fonts.jetbrains-mono
+    #   nerd-fonts.jetbrains-mono
+    maple-mono.NF
   ];
 
   # --- PROGRAMS & SECURITY ---
