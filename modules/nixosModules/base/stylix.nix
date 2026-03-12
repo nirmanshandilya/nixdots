@@ -5,7 +5,7 @@
 
     # You MUST have a wallpaper file in your nixdots folder for Stylix to work.
     # Replace "wallpaper.jpg" with your actual file name.
-    image = ../../../wallpapers/wallhaven-zpx3xw.png;
+    image = ../../../wallpapers/wallhaven-o5jv65.jpg;
      
     # Setting the theme to Catppuccin Mocha
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";

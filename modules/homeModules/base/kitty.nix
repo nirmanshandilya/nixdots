@@ -16,7 +16,7 @@
       wayland_enable_ime = "no";
 
       # --- Visuals ---
-      font_family = "JetBrainsMono Nerd Font";
+      font_family = "Maple Mono NF";
       bold_font = "auto";
       italic_font = "auto";
       bold_italic_font = "auto";

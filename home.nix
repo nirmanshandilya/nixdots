@@ -10,6 +10,7 @@
     ./modules/homeModules/base/kitty.nix
     ./modules/homeModules/base/nixTools.nix
     ./modules/homeModules/base/yazi.nix
+    ./modules/homeModules/base/swaylock.nix
   ];
 
   home.username = "jawknee";
