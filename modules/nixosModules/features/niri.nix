@@ -14,7 +14,6 @@
       waybar
       fuzzel
       kitty
-      floorp-bin
       xfce.thunar
       brightnessctl
       playerctl
@@ -102,7 +101,7 @@
       // ==========================================
       // Open browser in expanded view (not fullscreen)
       window-rule {
-          match app-id="floorp" 
+          match app-id="zen" 
           default-column-width { proportion 1.0; }
       }
 
@@ -120,7 +119,7 @@
           // --- Apps & Launchers ---
           MOD+RETURN          { spawn-sh "kitty"; }
           ALT+SPACE           { spawn-sh "fuzzel"; }
-          MOD+B               { spawn-sh "floorp"; }
+          MOD+B               { spawn-sh "zen"; }
           MOD+E               { spawn-sh "thunar"; }
           
           // --- System & Toggles ---

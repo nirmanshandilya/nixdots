@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -39,6 +39,7 @@
     mpv
     localsend
     zed-editor
+    inputs.zen-browser.packages.${pkgs.system}.default
 
     # Desktop
     mako
