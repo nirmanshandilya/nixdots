@@ -23,8 +23,8 @@
     # Font settings - This will apply to Kitty, Waybar, etc.
     fonts = {
       monospace = {
-        package = pkgs.nerd-fonts.jetbrains-mono;
-        name = "JetBrainsMono Nerd Font Mono";
+        package = pkgs.maple-mono.NF;
+        name = "Maple Mono NF";
       };
       serif = {
         package = pkgs.dejavu_fonts;

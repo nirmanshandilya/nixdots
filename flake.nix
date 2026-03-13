@@ -26,15 +26,33 @@
 
   };
 
-    outputs = { self, nixpkgs, home-manager, stylix, niri, zen-browser, ... }@inputs: {
+    outputs = { self, nixpkgs, home-manager, stylix, niri, zen-browser, ... }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+	inherit system;
+	config.allowUnfree = true;
+  };
+    in {
+      # --- SYSTEM: Only rebuilt when system-level things change with `nh os switch .` ---
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
         specialArgs = { inherit inputs; };
         modules = [
           ./modules/nixosModules/hosts/nixos/configuration.nix
           stylix.nixosModules.stylix
-          home-manager.nixosModules.home-manager
           niri.nixosModules.niri
+        ];
+      };
+
+      # --- HOME: Rebuilt independently with `nh home switch .` ---
+      homeConfigurations."jawknee" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs; };
+        modules = [
+          ./home.nix
+          stylix.homeModules.stylix     # <-- Needed for HM stylix targets
+	  inputs.niri.homeModules.niri  # provides programs.niri in HM
         ];
       };
     };

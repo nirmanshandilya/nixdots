@@ -43,6 +43,7 @@
   # These are available to all users. 
   # We moved Zsh and Niri specifics out, keeping general tools here.
   environment.systemPackages = with pkgs; [
+    home-manager  # standalone home-manager
     brightnessctl # Screen brightness control
     playerctl     # Media (play/pause) control
     git           # Version control
@@ -127,15 +128,6 @@
   enable = true;
   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   config.common.default = "gtk";
-  };
-
-  # --- HOME MANAGER ---
-  # This links your human user 'jawknee' to the home.nix config.
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.jawknee = import ../../../../home.nix;
   };
 
   # --- VERSIONING ---

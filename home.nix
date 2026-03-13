@@ -11,6 +11,7 @@
     ./modules/homeModules/base/nixTools.nix
     ./modules/homeModules/base/yazi.nix
     ./modules/homeModules/base/swaylock.nix
+    ./modules/homeModules/base/niri.nix
   ];
 
   home.username = "jawknee";
@@ -24,6 +25,7 @@
     loupe
     unrar
     p7zip
+    nh
 
     # Terminal Tools
     neovim
@@ -65,12 +67,49 @@
     postman #handle api requests
   ];
 
-  stylix.enableReleaseChecks = false;
   # This tells Home Manager to manage itself
   programs.home-manager.enable = true;
 
   services.cliphist.enable = true; #this automatically starts ( wl-paste --watch cliphist store )
 
+stylix = {
+  enable = true;
+  enableReleaseChecks = false;
+  image = ./wallpapers/wallhaven-o5jv65.jpg;
+  base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
+  polarity = "dark";
+
+  cursor = {
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Ice";
+    size = 24;
+  };
+
+  fonts = {
+    monospace = {
+      package = pkgs.maple-mono.NF;
+      name = "Msple Mono NF";
+    };
+    serif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Serif";
+    };
+    sansSerif = {
+      package = pkgs.dejavu_fonts;
+      name = "DejaVu Sans";
+    };
+    emoji = {
+      package = pkgs.noto-fonts-color-emoji;
+      name = "Noto Color Emoji";
+    };
+    sizes = {
+      applications = 12;
+      terminal = 13;
+      desktop = 11;
+      popups = 10;
+    };
+  };
+};
 
 
 }
