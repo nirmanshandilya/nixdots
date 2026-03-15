@@ -18,6 +18,7 @@
   # --- HOST IDENTITY ---
   # This sets the network name for this specific machine.
   networking.hostName = "nixos";
+  networking.nameservers = [ "8.8.8.8" "1.1.1.1" ];
 
   # --- BOOT & KERNEL ---
   # systemd-boot: Modern UEFI bootloader.

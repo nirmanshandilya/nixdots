@@ -49,6 +49,7 @@
 #      .. = "cd ..";
       bt = "blueman-manager";
       nos = "nh os switch";
+      cat= "bat";
     };
 
     # Keybinds & Custom Logic (initExtra)
