@@ -22,9 +22,11 @@ I've organized my configurations using flakes to keep hardware-specific settings
 │   │       ├──  bat.nix
 │   │       ├──  git.nix
 │   │       ├──  kitty.nix
+│   │       ├──  niri.nix
 │   │       ├──  nixTools.nix
 │   │       ├──  shell.nix
 │   │       ├──  starship.nix
+│   │       ├──  swaylock.nix
 │   │       ├──  waybar.nix
 │   │       └──  yazi.nix
 │   └──  nixosModules
@@ -42,5 +44,4 @@ I've organized my configurations using flakes to keep hardware-specific settings
 │               ├──  configuration.nix
 │               └──  hardware-configuration.nix
 ├──  README.md
-└──  wallpapers
 ```
