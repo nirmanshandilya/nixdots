@@ -42,6 +42,7 @@
     localsend
     zed-editor
     inputs.zen-browser.packages.${pkgs.system}.default
+    helix
 
     # Desktop
     mako
@@ -75,7 +76,7 @@
 stylix = {
   enable = true;
   enableReleaseChecks = false;
-  image = ./wallpapers/wallhaven-o5jv65.jpg;
+  image = ./wallpapers/clouds.png;
   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   polarity = "dark";
 
