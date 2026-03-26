@@ -14,8 +14,8 @@
         "margin-bottom" = 0;
         spacing = 0;
 
-        "modules-left" = [ "niri/workspaces" ];
-        "modules-center" = [ "clock" "idle_inhibitor" ];
+        "modules-left" = [ "custom/launcher" "niri/workspaces" ];
+        "modules-center" = [ "clock" "custom/cava" ];
         "modules-right" = [
           "custom/clipboard"
           "bluetooth"
@@ -25,13 +25,28 @@
           "battery"
         ];
 
-        clock = {
-          format = "{:%H : %M}";
-          timezone = "Asia/Kolkata";
-          tooltip = false;
-          "format-alt" = "{:%A, %b-%d}";
+        "custom/launcher" = {
+            format = "󱄅";
+            tooltip = true;
+            "tooltip-format" = "{}";
+            exec = "echo \"$(hostname) - up $(uptime | awk '{print $3}' | tr -d ',') hrs\"";
+            interval = 15;
+            "on-click" = "kitty --title btop sh -c btop";
         };
 
+        clock = {
+          format = "{:%a, %b %d | %H:%M}"; /* Mon, Jan 01 | 00:00 */
+          timezone = "Asia/Kolkata";
+          tooltip = false;
+        };
+        
+        "custom/cava" = {
+          exec = "$HOME/.config/waybar/cava.sh";
+          format = "{}";
+          tooltip = false;
+        };
+
+        /*
         idle_inhibitor = {
           format = "{icon}";
           "format-icons" = {
@@ -39,16 +54,17 @@
             deactivated = "󰾫";
           };
         };
+        */
 
         "custom/clipboard" = {
           format = "󰅌 ";
-          tooltip = true;
-          tooltip-format = "Clipboard History";
-          # This command uses cliphist and a launcher like fuzzel or wofi
-          "on-click" = "bash -c 'choice=$(echo -e \"[󰃢  Clear History]\\n$(cliphist list)\" | fuzzel -d -a top-right -x 20 -y 20 -l 8 -w 40 -p \"󰅌  \"); if [ \"$choice\" = \"[󰃢  Clear History]\" ]; then cliphist wipe; elif [ -n \"$choice\" ]; then echo \"$choice\" | cliphist decode | wl-copy; fi'";
+          tooltip = false;
+          "tooltip-format" = "{} items in clipboard history";
+          "on-click" = "bash -c 'choice=$(cliphist list | fuzzel -d -a top-right -x 20 -y 20 -l 10 -w 60 -p \"  paste  \"); [ -n \"$choice\" ] && echo \"$choice\" | cliphist decode | wl-copy'";
+          "on-click-right" = "cliphist wipe && notify-send '󰅌 Clipboard' 'History cleared'";
+          "on-click-middle" = "bash -c 'choice=$(cliphist list | fuzzel -d -a top-right -x 20 -y 20 -l 10 -w 60 -p \"  delete  \"); [ -n \"$choice\" ] && cliphist delete <<< \"$choice\" && notify-send \"󰅌 Clipboard\" \"Entry removed\"'";
         };
-
-        bluetooth = {
+          bluetooth = {
           format = "";
           "format-disabled" = "󰂲";
           "format-connected" = "󰂱";
@@ -104,7 +120,7 @@
 
 style = ''
       * {
-        font-family: JetBrainsMono Nerd Font;
+        font-family: Maple Mono NF;
         font-weight: bold;
         font-size: 14px;
         border-radius: 0px;
@@ -122,10 +138,25 @@ style = ''
         padding: 0 15px;
         margin: 0;
       }
-
+      
+      #custom-launcher {
+        padding: 0 12px;
+        color: @base0D;
+        font-size: 16px;
+      }
+      
       #clock,
       #idle_inhibitor {
         padding: 0 12px;
+      }
+      
+      #custom-cava {
+        padding: 0 12px;
+        background-color: @base02;
+        border-radius: 12px;
+        font-size: 10px;
+        letter-spacing: 2px;
+        margin: 4px 6px;
       }
 
       #custom-clipboard {
@@ -164,9 +195,6 @@ style = ''
         color: @base08; /* Red */
       }
 
-      #idle_inhibitor.activated {
-        color: @base09; /* Orange */
-      }
     '';
   };
 

@@ -21,7 +21,7 @@
     image=${config.stylix.image}
     effect-blur=10x3
     effect-vignette=0.3:0.6
-    fade-in=0.2
+    #fade-in=0.2
 
     # Separator
     separator-color=#00000000

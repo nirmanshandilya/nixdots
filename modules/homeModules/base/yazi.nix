@@ -8,8 +8,8 @@
     shellWrapperName = "y"; # Type 'y' to launch
 
     settings = {
-      manager = {
-        ratio = [ 1 4 3 ];
+      mgr = {
+        ratio = [ 1 3 4 ];
         sort_by = "natural";
         sort_dir_first = true;
         show_hidden = true;

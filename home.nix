@@ -17,6 +17,9 @@
   home.username = "jawknee";
   home.homeDirectory = "/home/jawknee";
   home.stateVersion = "25.11";
+  home.sessionVariables = {
+    LANG = "en_US.UTF-8";
+};
 
   home.packages = with pkgs; [
     unzip
@@ -36,17 +39,22 @@
     cliphist
     tty-clock
     zellij
+    btop
+    htop
+    
+    #Productivity
 
     # Apps
     mpv
     localsend
-    zed-editor
-    inputs.zen-browser.packages.${pkgs.system}.default
+    vscode
     helix
+    inputs.zen-browser.packages.${pkgs.system}.default
 
     # Desktop
     mako
     swaylock-effects
+    cava
 
     # Themes
     adwaita-icon-theme
@@ -63,20 +71,21 @@
     jdt-language-server
     nodejs_22
 
-    #Development tools
+    # Development tools
     mongodb-compass
     postman #handle api requests
+
   ];
 
   # This tells Home Manager to manage itself
   programs.home-manager.enable = true;
-
+  programs.fuzzel.enable = true;
   services.cliphist.enable = true; #this automatically starts ( wl-paste --watch cliphist store )
 
 stylix = {
   enable = true;
   enableReleaseChecks = false;
-  image = ./wallpapers/shogun-genshin.png;
+  image = ./wallpapers/fields-clouds.jpg;
   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   polarity = "dark";
 
@@ -105,7 +114,7 @@ stylix = {
     };
     sizes = {
       applications = 12;
-      terminal = 13;
+      terminal = 14;
       desktop = 11;
       popups = 10;
     };
@@ -113,4 +122,46 @@ stylix = {
 };
 
 
+      # Cava script for waybar capsule
+      home.file.".config/cava/config" = {
+        force = true;
+        text = ''
+          [general]
+          bars = 10
+      
+          [output]
+          method = raw
+          ascii_max_range = 7
+          raw_target = /dev/stdout
+          data_format = ascii
+          ascii_max_range = 7
+        '';
+      };
+      home.file.".config/waybar/cava.sh" = {
+        executable = true;
+        text = ''
+          #!/bin/sh
+          cava 2>/dev/null | while IFS= read -r line; do
+            out=""
+            while IFS=';' read -r -a bars <<< "$line"; do
+              for val in "''${bars[@]}"; do
+                case "$val" in
+                  0) out="''${out}▁" ;;
+                  1) out="''${out}▂" ;;
+                  2) out="''${out}▃" ;;
+                  3) out="''${out}▄" ;;
+                  4) out="''${out}▅" ;;
+                  5) out="''${out}▆" ;;
+                  6) out="''${out}▇" ;;
+                  7) out="''${out}█" ;;
+                  *) out="''${out}▁" ;;
+                esac
+              done
+              break
+             done
+             echo "$out"
+          done
+        '';
+      };
+      
 }
