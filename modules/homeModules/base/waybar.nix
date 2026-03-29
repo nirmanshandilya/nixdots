@@ -75,12 +75,13 @@
         };
 
         network = {
-          "format-wifi" = "";
-          "format-ethernet" = "";
+          "format-wifi" = "󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
+          "format-ethernet" = "󰕒 {bandwidthUpBytes} 󰇚 {bandwidthDownBytes}";
           "format-disconnected" = "󰖪";
           "format-disabled" = "󰀝";
           tooltip = true;
           "tooltip-format" = "{essid} ({signalStrength}%)";
+          interval = 2;
         };
 
         backlight = {
