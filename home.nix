@@ -127,11 +127,10 @@ stylix = {
         force = true;
         text = ''
           [general]
-          bars = 10
+          bars = 30
       
           [output]
           method = raw
-          ascii_max_range = 7
           raw_target = /dev/stdout
           data_format = ascii
           ascii_max_range = 7
