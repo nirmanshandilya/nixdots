@@ -121,13 +121,32 @@ stylix = {
   };
 };
 
+      # --- BATTERY TOGGLE SCRIPT (CONSERVATION MODE) ---
+      home.file.".local/bin/battery-toggle" = {
+        executable = true;
+        text = ''
+          #!/bin/sh
+          CONSERVATION_MODE="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
+          
+          current=$(cat "$CONSERVATION_MODE")
+          
+          if [ "$current" = "0" ]; then
+            echo 1 | sudo tee "$CONSERVATION_MODE" > /dev/null
+            notify-send "🔋 Battery" "Conservation mode ON (limit 60%)"
+          else
+            echo 0 | sudo tee "$CONSERVATION_MODE" > /dev/null
+            notify-send "🔋 Battery" "Conservation mode OFF (charging to 100%)"
+          fi
+        '';
+      };
+
 
       # Cava script for waybar capsule
       home.file.".config/cava/config" = {
         force = true;
         text = ''
           [general]
-          bars = 30
+          bars = 10
       
           [output]
           method = raw

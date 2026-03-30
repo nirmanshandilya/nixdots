@@ -156,7 +156,7 @@ style = ''
         background-color: @base02;
         border-radius: 12px;
         font-size: 10px;
-        letter-spacing: 0px;
+        letter-spacing: 2px;
         margin: 4px 6px;
       }
 
