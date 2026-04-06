@@ -50,6 +50,7 @@
     vscode
     helix
     inputs.zen-browser.packages.${pkgs.system}.default
+    python313Packages.notebook
 
     # Desktop
     mako

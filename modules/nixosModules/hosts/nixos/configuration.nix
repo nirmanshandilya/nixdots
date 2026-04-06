@@ -59,7 +59,7 @@
   # --- auto mount HDD (/dev/sda1) at /mnt ---
   fileSystems."/mnt" = {
     device = "/dev/disk/by-uuid/4CF809A7F809907E";
-    fsType = "ntfs3";
+    fsType = "ntfs-3g";
     options = [ "rw" "uid=1000" "gid=100" "nofail" ];
   };
 

@@ -21,8 +21,8 @@
           "bluetooth"
           "pulseaudio"
           "backlight"
-          "network"
           "battery"
+          "network"
         ];
 
         "custom/launcher" = {
@@ -167,10 +167,17 @@ style = ''
 
       #bluetooth,
       #pulseaudio,
-      #backlight,
-      #network {
+      #backlight{
         padding: 0 10px;
         margin: 0;
+      }
+
+      #network {
+        padding: 0 10px;
+        margin: 4px 6px;
+        min-width: 200px;
+        background-color: @base02;
+        border-radius: 12px;
       }
 
       #battery {
