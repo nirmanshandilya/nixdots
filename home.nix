@@ -50,7 +50,6 @@
     vscode
     helix
     inputs.zen-browser.packages.${pkgs.system}.default
-    python313Packages.notebook
 
     # Desktop
     mako
@@ -78,6 +77,11 @@
 
   ];
 
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   # This tells Home Manager to manage itself
   programs.home-manager.enable = true;
   programs.fuzzel.enable = true;
@@ -86,7 +90,8 @@
 stylix = {
   enable = true;
   enableReleaseChecks = false;
-  image = ./wallpapers/fields-clouds.jpg;
+  targets.xresources.enable = false;
+  image = ./wallpapers/clouds.png;
   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   polarity = "dark";
 
@@ -99,7 +104,7 @@ stylix = {
   fonts = {
     monospace = {
       package = pkgs.maple-mono.NF;
-      name = "Msple Mono NF";
+      name = "Maple Mono NF";
     };
     serif = {
       package = pkgs.dejavu_fonts;
@@ -122,65 +127,65 @@ stylix = {
   };
 };
 
-      # --- BATTERY TOGGLE SCRIPT (CONSERVATION MODE) ---
-      home.file.".local/bin/battery-toggle" = {
-        executable = true;
-        text = ''
-          #!/bin/sh
-          CONSERVATION_MODE="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
-          
-          current=$(cat "$CONSERVATION_MODE")
-          
-          if [ "$current" = "0" ]; then
-            echo 1 | sudo tee "$CONSERVATION_MODE" > /dev/null
-            notify-send "🔋 Battery" "Conservation mode ON (limit 60%)"
-          else
-            echo 0 | sudo tee "$CONSERVATION_MODE" > /dev/null
-            notify-send "🔋 Battery" "Conservation mode OFF (charging to 100%)"
-          fi
-        '';
-      };
-
-
-      # Cava script for waybar capsule
-      home.file.".config/cava/config" = {
-        force = true;
-        text = ''
-          [general]
-          bars = 10
+  # --- BATTERY TOGGLE SCRIPT (CONSERVATION MODE) ---
+  home.file.".local/bin/battery-toggle" = {
+    executable = true;
+    text = ''
+      #!/bin/sh
+      CONSERVATION_MODE="/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode"
       
-          [output]
-          method = raw
-          raw_target = /dev/stdout
-          data_format = ascii
-          ascii_max_range = 7
-        '';
-      };
-      home.file.".config/waybar/cava.sh" = {
-        executable = true;
-        text = ''
-          #!/bin/sh
-          cava 2>/dev/null | while IFS= read -r line; do
-            out=""
-            while IFS=';' read -r -a bars <<< "$line"; do
-              for val in "''${bars[@]}"; do
-                case "$val" in
-                  0) out="''${out}▁" ;;
-                  1) out="''${out}▂" ;;
-                  2) out="''${out}▃" ;;
-                  3) out="''${out}▄" ;;
-                  4) out="''${out}▅" ;;
-                  5) out="''${out}▆" ;;
-                  6) out="''${out}▇" ;;
-                  7) out="''${out}█" ;;
-                  *) out="''${out}▁" ;;
-                esac
-              done
-              break
-             done
-             echo "$out"
+      current=$(cat "$CONSERVATION_MODE")
+      
+      if [ "$current" = "0" ]; then
+        echo 1 | sudo tee "$CONSERVATION_MODE" > /dev/null
+        notify-send "🔋 Battery" "Conservation mode ON (limit 60%)"
+      else
+        echo 0 | sudo tee "$CONSERVATION_MODE" > /dev/null
+        notify-send "🔋 Battery" "Conservation mode OFF (charging to 100%)"
+      fi
+    '';
+  };
+
+
+  # Cava script for waybar capsule
+  home.file.".config/cava/config" = {
+    force = true;
+    text = ''
+      [general]
+      bars = 10
+  
+      [output]
+      method = raw
+      raw_target = /dev/stdout
+      data_format = ascii
+      ascii_max_range = 7
+    '';
+  };
+  home.file.".config/waybar/cava.sh" = {
+    executable = true;
+    text = ''
+      #!/bin/sh
+      cava 2>/dev/null | while IFS= read -r line; do
+        out=""
+        while IFS=';' read -r -a bars <<< "$line"; do
+          for val in "''${bars[@]}"; do
+            case "$val" in
+              0) out="''${out}▁" ;;
+              1) out="''${out}▂" ;;
+              2) out="''${out}▃" ;;
+              3) out="''${out}▄" ;;
+              4) out="''${out}▅" ;;
+              5) out="''${out}▆" ;;
+              6) out="''${out}▇" ;;
+              7) out="''${out}█" ;;
+              *) out="''${out}▁" ;;
+            esac
           done
-        '';
-      };
+          break
+         done
+         echo "$out"
+      done
+    '';
+  };
       
 }

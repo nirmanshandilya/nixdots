@@ -10,7 +10,7 @@
     };
 
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:nix-community/stylix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -52,7 +52,7 @@
         modules = [
           ./home.nix
           stylix.homeModules.stylix     # <-- Needed for HM stylix targets
-	  inputs.niri.homeModules.niri  # provides programs.niri in HM
+          inputs.niri.homeModules.niri  # provides programs.niri in HM
         ];
       };
     };
