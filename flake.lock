@@ -282,6 +282,7 @@
         "niri": "niri",
         "nixpkgs": "nixpkgs",
         "stylix": "stylix",
+        "wallpapers": "wallpapers",
         "zen-browser": "zen-browser"
       }
     },
@@ -413,6 +414,22 @@
       "original": {
         "owner": "tinted-theming",
         "repo": "base16-zed",
+        "type": "github"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1778096060,
+        "narHash": "sha256-0Kbh/4qJWq5/i/tHjF11LYkM5eijQfLkFkxvsclrXLU=",
+        "owner": "nirmanshandilya",
+        "repo": "wallpapers",
+        "rev": "a4974b32c1d608af43e151b32ea5ceb9beae18e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nirmanshandilya",
+        "repo": "wallpapers",
         "type": "github"
       }
     },
