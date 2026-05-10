@@ -1,0 +1,19 @@
+
+      input {
+          keyboard {
+              xkb { 
+      layout "us,us"; 
+      variant ",colemak_dh"; 
+      options "caps:swapescape,grp:win_space_toggle";
+    }
+              numlock 
+          }
+
+          touchpad {
+              tap 
+              natural-scroll 
+          }
+
+          focus-follows-mouse 
+          workspace-auto-back-and-forth 
+      }

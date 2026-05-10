@@ -54,6 +54,7 @@
     i2c-tools     # Hardware debugging
     usbutils      # lsusb command
     libnotify     # notify-send
+    android-tools # adb 
   ];
 
   # --- auto mount HDD (/dev/sda1) at /mnt ---
@@ -109,7 +110,6 @@
   services.gnome.gcr-ssh-agent.enable = false;
 
   # Android & Misc
-  programs.adb.enable = true;
   security.polkit.enable = true;
 
   # --- FIREWALL ---

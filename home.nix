@@ -11,7 +11,7 @@
     ./modules/homeModules/base/nixTools.nix
     ./modules/homeModules/base/yazi.nix
     ./modules/homeModules/base/swaylock.nix
-    ./modules/homeModules/base/niri.nix
+    ./modules/homeModules/base/niri
   ];
 
   home.username = "jawknee";
@@ -49,7 +49,7 @@
     localsend
     vscode
     helix
-    inputs.zen-browser.packages.${pkgs.system}.default
+    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Desktop
     mako
@@ -65,7 +65,7 @@
     nil 
     pyright 
     vscode-langservers-extracted
-    nodePackages.typescript-language-server
+    typescript-language-server
     clang-tools
     tailwindcss-language-server
     jdt-language-server
@@ -91,7 +91,7 @@ stylix = {
   enable = true;
   enableReleaseChecks = false;
   targets.xresources.enable = false;
-  image = inputs.wallpapers + "/catppuccin_mocha.png";
+  image = inputs.wallpapers + "/mima.jpg";
   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   polarity = "dark";
 

@@ -1,0 +1,2 @@
+     spawn-sh-at-startup "hyprpolkitagent"
+      spawn-sh-at-startup "waybar" 

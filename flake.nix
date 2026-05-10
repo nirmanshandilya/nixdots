@@ -2,24 +2,19 @@
   description = "nixos-modular-flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     stylix = {
-      url = "github:nix-community/stylix/release-25.11";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    niri = {
-      url = "github:sodiboo/niri-flake";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    zen-browser = {
+   zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -30,7 +25,7 @@
 
   };
 
-    outputs = { self, nixpkgs, home-manager, stylix, niri, zen-browser, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, stylix,  zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -45,7 +40,6 @@
         modules = [
           ./modules/nixosModules/hosts/nixos/configuration.nix
           stylix.nixosModules.stylix
-          niri.nixosModules.niri
         ];
       };
 
@@ -56,7 +50,6 @@
         modules = [
           ./home.nix
           stylix.homeModules.stylix     # <-- Needed for HM stylix targets
-          inputs.niri.homeModules.niri  # provides programs.niri in HM
         ];
       };
     };
