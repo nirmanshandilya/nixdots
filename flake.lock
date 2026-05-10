@@ -323,11 +323,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1778096060,
-        "narHash": "sha256-0Kbh/4qJWq5/i/tHjF11LYkM5eijQfLkFkxvsclrXLU=",
+        "lastModified": 1778417035,
+        "narHash": "sha256-Ib0OjgYbXHHoTPA7ilbFqHRRGXvVdvDa0ERrtJCqjtA=",
         "owner": "nirmanshandilya",
         "repo": "wallpapers",
-        "rev": "a4974b32c1d608af43e151b32ea5ceb9beae18e7",
+        "rev": "62020cbe671f507a48e3eb5f7fd07f788e0b8de4",
         "type": "github"
       },
       "original": {
