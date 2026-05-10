@@ -25,7 +25,8 @@
         match app-id="fuzzel"
         match app-id="code"
         match app-id="thunar"
-        opacity 0.8
+        match app-id="zen"
+        opacity 0.88
         background-effect {
             blur true
         }
