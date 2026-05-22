@@ -22,8 +22,21 @@ I've organized my configurations using flakes to keep hardware-specific settings
 │   │       ├──  bat.nix
 │   │       ├──  git.nix
 │   │       ├──  kitty.nix
-│   │       ├──  niri.nix
+│   │       ├──  niri
+│   │       │   ├──  config
+│   │       │   │   ├──  binds.kdl
+│   │       │   │   ├──  config.kdl
+│   │       │   │   ├──  environment.kdl
+│   │       │   │   ├──  input.kdl
+│   │       │   │   ├──  output.kdl
+│   │       │   │   ├──  spawn-at-startup.kdl
+│   │       │   │   └──  window-rule.kdl
+│   │       │   └──  default.nix
 │   │       ├──  nixTools.nix
+│   │       ├──  noctalia
+│   │       │   ├──  config.json
+│   │       │   ├──  default.nix
+│   │       │   └──  wallpapers.json
 │   │       ├──  shell.nix
 │   │       ├──  starship.nix
 │   │       ├──  swaylock.nix
@@ -43,5 +56,5 @@ I've organized my configurations using flakes to keep hardware-specific settings
 │           └──  nixos
 │               ├──  configuration.nix
 │               └──  hardware-configuration.nix
-├──  README.md
+└──  README.md
 ```
