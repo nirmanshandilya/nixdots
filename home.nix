@@ -3,7 +3,7 @@
 {
   imports = [
     ./modules/homeModules/base/shell.nix
-    ./modules/homeModules/base/waybar.nix
+    #    ./modules/homeModules/base/waybar.nix
     ./modules/homeModules/base/starship.nix
     ./modules/homeModules/base/bat.nix
     ./modules/homeModules/base/git.nix
@@ -12,6 +12,7 @@
     ./modules/homeModules/base/yazi.nix
     ./modules/homeModules/base/swaylock.nix
     ./modules/homeModules/base/niri
+    ./modules/homeModules/base/noctalia
   ];
 
   home.username = "jawknee";
@@ -52,7 +53,7 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Desktop
-    mako
+    #mako
     swaylock-effects
     cava
 
@@ -91,7 +92,7 @@ stylix = {
   enable = true;
   enableReleaseChecks = false;
   targets.xresources.enable = false;
-  image = inputs.wallpapers + "/mima.jpg";
+  image = inputs.wallpapers + "/wallpaper_night_city.png";
   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   polarity = "dark";
 

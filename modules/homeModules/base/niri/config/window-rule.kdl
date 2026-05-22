@@ -21,11 +21,6 @@
 
      //BLUR SETTINGS FOR ALL APPS 
       window-rule {
-        match app-id="kitty"
-        match app-id="fuzzel"
-        match app-id="code"
-        match app-id="thunar"
-        match app-id="zen"
         opacity 0.88
         background-effect {
             blur true
