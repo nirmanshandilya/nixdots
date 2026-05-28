@@ -10,7 +10,7 @@
     ./modules/homeModules/base/kitty.nix
     ./modules/homeModules/base/nixTools.nix
     ./modules/homeModules/base/yazi.nix
-    ./modules/homeModules/base/swaylock.nix
+    #    ./modules/homeModules/base/swaylock.nix
     ./modules/homeModules/base/niri
     ./modules/homeModules/base/noctalia
   ];
@@ -54,7 +54,7 @@
 
     # Desktop
     #mako
-    swaylock-effects
+    #swaylock-effects
     cava
 
     # Themes
@@ -92,7 +92,7 @@ stylix = {
   enable = true;
   enableReleaseChecks = false;
   targets.xresources.enable = false;
-  image = inputs.wallpapers + "/wallpaper_night_city.png";
+    #  image = inputs.wallpapers + "/catppuccin_mocha3.png";
   base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
   polarity = "dark";
 

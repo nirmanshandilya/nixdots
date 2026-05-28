@@ -7,7 +7,7 @@
     source = ./config.json;
   };
 
-  home.file.".cache/noctalia/wallpapers.json" = {
-    source = ./wallpapers.json;
-  };
+#  home.file.".cache/noctalia/wallpapers.json" = {
+ #   source = ./wallpapers.json;
+  #};
 }

@@ -8,7 +8,8 @@
           
           // --- System & Toggles ---
           MOD+Q               { close-window; }
-          MOD+ALT+L           { spawn-sh "swaylock"; }
+          MOD+ALT+L           { spawn-sh "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
+          //MOD+ALT+L           { spawn-sh "swaylock"; }
           MOD+SHIFT+B         { spawn "~/.local/bin/battery-toggle"; } // battery conservation mode toggle
           MOD+ESCAPE          allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
           MOD+O               repeat=false { toggle-overview; }
