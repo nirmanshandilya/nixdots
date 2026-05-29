@@ -23,10 +23,6 @@
         url = "github:youwen5/zen-browser-flake";
         inputs.nixpkgs.follows = "nixpkgs";
       };
-    wallpapers = {
-      url = "github:nirmanshandilya/wallpapers";
-      flake = false;
-    };
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
