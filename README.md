@@ -36,7 +36,7 @@ I've organized my configurations using flakes to keep hardware-specific settings
 │   │       ├──  noctalia
 │   │       │   ├──  config.json
 │   │       │   ├──  default.nix
-│   │       │   └──  wallpapers.json
+│   │       │   └── 󰁯 wallpapers.json.bak
 │   │       ├──  shell.nix
 │   │       ├──  starship.nix
 │   │       ├──  swaylock.nix
@@ -50,8 +50,9 @@ I've organized my configurations using flakes to keep hardware-specific settings
 │       │   └──  users.nix
 │       ├──  features
 │       │   ├──  gaming.nix
-│       │   ├──  greeter.nix
-│       │   └──  niri.nix
+│       │   ├── 󰁯 greeter.nix.bak
+│       │   ├──  niri.nix
+│       │   └──  sddm.nix
 │       └── 󰀂 hosts
 │           └──  nixos
 │               ├──  configuration.nix
