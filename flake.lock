@@ -249,7 +249,6 @@
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
         "stylix": "stylix",
-        "wallpapers": "wallpapers",
         "zen-browser": "zen-browser"
       }
     },
@@ -399,22 +398,6 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
-        "type": "github"
-      }
-    },
-    "wallpapers": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1778417035,
-        "narHash": "sha256-Ib0OjgYbXHHoTPA7ilbFqHRRGXvVdvDa0ERrtJCqjtA=",
-        "owner": "nirmanshandilya",
-        "repo": "wallpapers",
-        "rev": "62020cbe671f507a48e3eb5f7fd07f788e0b8de4",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nirmanshandilya",
-        "repo": "wallpapers",
         "type": "github"
       }
     },

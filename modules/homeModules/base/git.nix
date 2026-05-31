@@ -7,7 +7,7 @@
     settings = {
       user = {
         name = "nirmanshandilya";
-        email = "nirmanshandilya.oc@gmail.com"; 
+        email = "173679367+nirmanshandilya@users.noreply.github.com"; 
       };
       init.defaultBranch = "main";
       push.autoSetupRemote = true;
@@ -26,7 +26,7 @@
     enable = true;
     enableDefaultConfig = false; 
     
-    matchBlocks = {
+    settings = {
       "github.com" = {
         hostname = "github.com";
         user = "git";
