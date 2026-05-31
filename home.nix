@@ -20,6 +20,8 @@
   home.stateVersion = "25.11";
   home.sessionVariables = {
     LANG = "en_US.UTF-8";
+    EDITOR = "nvim";
+    VISUAL = "nvim";
 };
 
   home.packages = with pkgs; [

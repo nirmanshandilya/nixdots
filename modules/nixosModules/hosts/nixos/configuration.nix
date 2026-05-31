@@ -40,6 +40,7 @@
   hardware.i2c.enable = true;
   services.gvfs.enable = true; # Needed for mounting drives/phones in Thunar
   services.tumbler.enable = true;
+  services.upower.enable = true; # for battery icon issue in noctalia-shell bar
 
   # --- SYSTEM PACKAGES ---
   # These are available to all users. 
@@ -95,7 +96,7 @@
   };
 
   # --- PAM Services for Swaylock ---
-  security.pam.services.swaylock = {};
+  #security.pam.services.swaylock = {};
 
   # Enable sound with pipewire.
   security.rtkit.enable = true;
