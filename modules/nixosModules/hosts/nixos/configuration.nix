@@ -9,7 +9,8 @@
 
     # 2. Features (Compositor and Login)
     ../../features/niri.nix
-    ../../features/greeter.nix
+    ../../features/sddm.nix
+    #../../features/greeter.nix
 
     # 3. Gaming (NVIDIA)
     # ../../features/gaming.nix
