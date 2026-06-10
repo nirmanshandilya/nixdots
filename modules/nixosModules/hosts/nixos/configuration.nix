@@ -2,6 +2,7 @@
   imports = [
     # 1. Hardware and Base
     ./hardware-configuration.nix
+    ./cudaConfig.nix
     ../../base/nix.nix
     ../../base/users.nix
     ../../base/locale.nix
