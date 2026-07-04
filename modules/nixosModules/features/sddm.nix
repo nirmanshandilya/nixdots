@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   sddm-astronaut = pkgs.sddm-astronaut.override {
-    embeddedTheme = "astronaut"; # current sddm theme name
+    embeddedTheme = "jake_the_dog"; # current sddm theme name
     themeConfig = {
       ScreenWidth = "1920";
       ScreenHeight = "1080";
