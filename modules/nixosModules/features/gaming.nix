@@ -3,7 +3,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    finegrained = true;
+    #finegrained = true;
   };
 
   # 2. NVIDIA Driver Config

@@ -2,7 +2,6 @@
   imports = [
     # 1. Hardware and Base
     ./hardware-configuration.nix
-    ./cudaConfig.nix
     ../../base/nix.nix
     ../../base/users.nix
     ../../base/locale.nix
@@ -14,7 +13,11 @@
     #../../features/greeter.nix
 
     # 3. Gaming (NVIDIA)
-    # ../../features/gaming.nix
+    ../../features/gaming.nix
+
+    # 4. NVIDIA CUDA config (for ML)
+    #./cudaConfig.nix
+
   ];
 
   # --- HOST IDENTITY ---
@@ -58,6 +61,7 @@
     usbutils      # lsusb command
     libnotify     # notify-send
     android-tools # adb 
+    universal-android-debloater
   ];
 
   # --- auto mount HDD (/dev/sda1) at /mnt ---

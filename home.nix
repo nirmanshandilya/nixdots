@@ -75,7 +75,7 @@
     nodejs_22
 
     # Development tools
-    mongodb-compass
+    #mongodb-compass
     postman #handle api requests
 
   ];
@@ -129,6 +129,8 @@ stylix = {
     };
   };
 };
+
+  home.pointerCursor.enable = true;
 
   # --- BATTERY TOGGLE SCRIPT (CONSERVATION MODE) ---
   home.file.".local/bin/battery-toggle" = {
