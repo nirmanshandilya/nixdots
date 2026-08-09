@@ -1,11 +1,6 @@
 {
   description = "nixos-modular-flake";
 
-  nixConfig = {
-    extra-substituters = [ "https://noctalia.cachix.org" ];
-    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
-  };
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     
@@ -23,15 +18,9 @@
         url = "github:youwen5/zen-browser-flake";
         inputs.nixpkgs.follows = "nixpkgs";
       };
-
-    noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
   };
 
-    outputs = { self, nixpkgs, home-manager, stylix,  zen-browser, noctalia, ... }@inputs:
+    outputs = { self, nixpkgs, home-manager, stylix,  zen-browser, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {

@@ -1,3 +1,0 @@
-spawn-sh-at-startup "hyprpolkitagent"
-spawn-sh-at-startup "noctalia-shell"
-//spawn-sh-at-startup "waybar" 

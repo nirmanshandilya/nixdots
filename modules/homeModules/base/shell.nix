@@ -1,4 +1,10 @@
 { pkgs, config, ... }: {
+  programs.eza = {
+    enable = true;
+    enableZshIntegration = true;
+
+    icons = true;
+  };
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -38,7 +44,6 @@
 
     # Aliases
     shellAliases = {
-      ls = "lsd";
       l = "ls -l";
       la = "ls -a";
       lla = "ls -la";

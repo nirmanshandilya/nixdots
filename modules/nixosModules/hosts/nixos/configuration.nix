@@ -6,6 +6,7 @@
     ../../base/users.nix
     ../../base/locale.nix
     ../../base/stylix.nix
+    ../../features/noctalia.nix
 
     # 2. Features (Compositor and Login)
     ../../features/niri.nix

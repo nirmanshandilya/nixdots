@@ -12,7 +12,7 @@
     ./modules/homeModules/base/yazi.nix
     #    ./modules/homeModules/base/swaylock.nix
     ./modules/homeModules/base/niri
-    ./modules/homeModules/base/noctalia
+    # ./modules/homeModules/base/noctalia
   ];
 
   home.username = "jawknee";
@@ -35,7 +35,6 @@
 
     # Terminal Tools
     neovim
-    lsd
     fzf
     fastfetch
     wl-clipboard
