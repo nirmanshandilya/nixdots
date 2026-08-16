@@ -104,13 +104,13 @@
     binds = {
       # --- Apps & Launchers ---
       "Mod+Return".spawn = "kitty";
-      "ALT+SPACE".spawn-sh = "fuzzel";
+      "ALT+SPACE".spawn-sh = "noctalia msg panel-toggle launcher";
       "MOD+B".spawn-sh = "zen";
       "MOD+E".spawn-sh = "thunar";
 
       # --- System & Toggles ---
       "MOD+Q".close-window = {};
-      # "MOD+ALT+L".spawn = [ "noctalia-shell" "ipc" "call" "lockScreen" "lock" ];
+      "MOD+ALT+L".spawn = [ "noctalia" "msg" "session" "lock-and-suspend" ];
       # "MOD+ALT+L".spawn-sh = "swaylock";
       "MOD+SHIFT+B".spawn = "~/.local/bin/battery-toggle"; # battery conservation mode toggle
       "MOD+ESCAPE" = {

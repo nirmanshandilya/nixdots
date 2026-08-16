@@ -3,7 +3,7 @@
     enable = true;
     enableZshIntegration = true;
 
-    icons = true;
+    icons = "auto";
   };
   programs.zsh = {
     enable = true;

@@ -87,8 +87,6 @@
 
   # This tells Home Manager to manage itself
   programs.home-manager.enable = true;
-  programs.fuzzel.enable = true;
-  services.cliphist.enable = true; #this automatically starts ( wl-paste --watch cliphist store )
 
 stylix = {
   enable = true;
