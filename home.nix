@@ -2,17 +2,14 @@
 
 {
   imports = [
-    ./modules/homeModules/base/shell.nix
-    #    ./modules/homeModules/base/waybar.nix
-    ./modules/homeModules/base/starship.nix
-    ./modules/homeModules/base/bat.nix
-    ./modules/homeModules/base/git.nix
-    ./modules/homeModules/base/kitty.nix
-    ./modules/homeModules/base/nixTools.nix
-    ./modules/homeModules/base/yazi.nix
-    #    ./modules/homeModules/base/swaylock.nix
     ./modules/homeModules/base/niri
-    # ./modules/homeModules/base/noctalia
+    ./modules/homeModules/base/git.nix
+    ./modules/homeModules/base/bat.nix
+    ./modules/homeModules/base/yazi.nix
+    ./modules/homeModules/base/kitty.nix
+    ./modules/homeModules/base/shell.nix
+    ./modules/homeModules/base/starship.nix
+    ./modules/homeModules/base/nixTools.nix
   ];
 
   home.username = "jawknee";
@@ -53,6 +50,7 @@
     helix
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
     signal-desktop
+    telegram-desktop
 
     # Desktop
     #mako
@@ -76,7 +74,8 @@
 
     # Development tools
     #mongodb-compass
-    postman #handle api requests
+    postman 
+    google-chrome
 
   ];
 

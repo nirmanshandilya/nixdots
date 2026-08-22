@@ -110,7 +110,7 @@
 
       # --- System & Toggles ---
       "MOD+Q".close-window = {};
-      "MOD+ALT+L".spawn = [ "noctalia" "msg" "session" "lock-and-suspend" ];
+      "MOD+ALT+L".spawn = [ "noctalia" "msg" "session" "lock" ];
       # "MOD+ALT+L".spawn-sh = "swaylock";
       "MOD+SHIFT+B".spawn = "~/.local/bin/battery-toggle"; # battery conservation mode toggle
       "MOD+ESCAPE" = {
