@@ -10,6 +10,7 @@
     ./modules/homeModules/base/shell.nix
     ./modules/homeModules/base/starship.nix
     ./modules/homeModules/base/nixTools.nix
+    ./modules/homeModules/base/noctalia.nix
   ];
 
   home.username = "jawknee";
