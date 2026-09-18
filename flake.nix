@@ -1,11 +1,30 @@
 {
-  description = "nixos-modular-flake";
+  description = ''
+    "Rachit's NixOS Configuration copied by me"
+  '';
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    
+    disko.url = "github:nix-community/disko";
+
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    nur = {
+      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -14,38 +33,22 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-     zen-browser = {
-        url = "github:youwen5/zen-browser-flake";
-        inputs.nixpkgs.follows = "nixpkgs";
-      };
-  };
-
-    outputs = { self, nixpkgs, home-manager, stylix,  zen-browser, ... }@inputs:
-    let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs {
-	inherit system;
-	config.allowUnfree = true;
-  };
-    in {
-      # --- SYSTEM: Only rebuilt when system-level things change with `nh os switch .` ---
-      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./modules/nixosModules/hosts/nixos/configuration.nix
-          stylix.nixosModules.stylix
-        ];
-      };
-
-      # --- HOME: Rebuilt independently with `nh home switch .` ---
-      homeConfigurations."jawknee" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-        extraSpecialArgs = { inherit inputs; };
-        modules = [
-          ./home.nix
-          stylix.homeModules.stylix     # <-- Needed for HM stylix targets
-        ];
-      };
+    zen-browser = {
+      url = "github:youwen5/zen-browser-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
+  };
+
+  outputs =
+    inputs:
+    let
+      inherit (inputs.nixpkgs) lib;
+      inherit (lib.fileset) toList fileFilter;
+
+      isNixModule = file: file.hasExt "nix" && file.name != "flake.nix" && !lib.hasPrefix "_" file.name;
+
+      importTree = path: toList (fileFilter isNixModule path);
+      mkFlake = inputs.flake-parts.lib.mkFlake { inherit inputs; };
+    in
+    mkFlake { imports = importTree ./.; };
 }
