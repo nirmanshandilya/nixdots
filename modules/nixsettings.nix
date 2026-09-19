@@ -1,7 +1,5 @@
 { inputs, ... }: {
   flake.nixosModules.nixsettings = {
-    imports = [ inputs.nix-index-database.nixosModules.nix-index ];
-
     nix = {
       # When using home-manager as nixos module, comment this out
       # package = pkgs.lix;
@@ -31,7 +29,6 @@
     };
 
     programs = {
-      nix-index-database.comma.enable = true;
       nix-index.enable = true;
       nh = {
         enable = true;
@@ -45,10 +42,6 @@
   };
 
   flake.homeModules.nixsettings = { pkgs, config, ... }: {
-    imports = [
-      inputs.nix-index-database.homeModules.default
-    ];
-
     home.packages = with pkgs; [
       nix-prefetch
       nix-prefetch-github
@@ -58,7 +51,6 @@
     programs = {
       # Integrates with home-manager managed shell
       nix-index.enable = true;
-      nix-index-database.comma.enable = true;
 
       nh = {
         enable = true;

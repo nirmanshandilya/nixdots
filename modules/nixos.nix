@@ -29,7 +29,6 @@
 
     nixpkgs.overlays = [
       # Add in the NUR overlays.
-      inputs.nur.overlays.default
     ];
   };
 }

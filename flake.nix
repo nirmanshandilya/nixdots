@@ -1,10 +1,11 @@
 {
   description = ''
-    "Rachit's NixOS Configuration copied by me"
+    "My NixOS Configuration"
   '';
 
   inputs = {
     disko.url = "github:nix-community/disko";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
@@ -13,18 +14,6 @@
 
     home-manager = {
       url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nix-index-database = {
-      url = "github:nix-community/nix-index-database";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    nur = {
-      url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -39,6 +28,7 @@
     };
   };
 
+# Custom Import Function - import all .nix files automatically
   outputs =
     inputs:
     let
